@@ -72,7 +72,9 @@
     <Compile Include="Assets\script\Mushroomhy.cs" />
     <Compile Include="Assets\script\Organisms.cs" />
     <Compile Include="Assets\script\OtherSprites.cs" />
+    <Compile Include="Assets\script\UnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\script\World.cs" />
+    <Compile Include="Assets\script\ZeroMQFACSvatar.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -286,20 +288,20 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/anzhuang/unity2018220/anzhuanghou/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="AsyncIO">
+      <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Assets/AsyncIO.dll</HintPath>
+    </Reference>
+    <Reference Include="NetMQ">
+      <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Assets/NetMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Assets/Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/329/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/329/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="AsyncIO">
-      <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Assets/AsyncIO.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Assets/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NetMQ">
-      <HintPath>F:/animation/facsvatar/superMario-master/superMario-master/Assets/NetMQ.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/anzhuang/unity2018220/anzhuanghou/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
