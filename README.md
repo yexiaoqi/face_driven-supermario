@@ -1,32 +1,4 @@
 
-
-## 【注】在手机端上玩需要打开虚拟摇杆
-MarioCtrl.cs
-
-     if (Input.GetKey(KeyCode.A))
-        //if (touchKey_x < -0.1f)
-        {
-            transform.localEulerAngles = new Vector3(0,180,0);
-            if (Camera.main.WorldToScreenPoint(transform.position).x > 20)  //小玛丽不能超出坐屏幕
-            {
-                transform.Translate(Vector3.right * runSpeed * Time.deltaTime * Mathf.Abs(touchKey_x)); //移动位置
-            }
-            runAnim();
-        }
-        
-        if (Input.GetKey(KeyCode.D))
-        //else if (touchKey_x > 0.1f)
-        {
-            transform.localEulerAngles = new Vector3(0, 0, 0);
-            transform.Translate(Vector3.right * runSpeed * Time.deltaTime * Mathf.Abs(touchKey_x));
-            runAnim(); 
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && isGround)
-        //if (isTouchJump()&&isGround)
-        {
-            World.playAudio(World.jumpAudioIndex);
-            rigidbody2D.velocity = new Vector2(0, jumpSeed);
-            jumpAnim();
-        }
-
+将人脸驱动应用到游戏控制上。
+一个简单的超级玛丽游戏，头向左转是后退，头向右转是前进，头向上转是跳跃，嘴巴张开喊“爆”（实际是检测张嘴）是发出炸弹炸走前方敌人，连读眨眼是搭桥通过悬崖，眨眼次数决定搭桥长度（检测眨眼），之后可以加上其他表情对应的游戏效果。
+游戏宣传：解放你的双手！
