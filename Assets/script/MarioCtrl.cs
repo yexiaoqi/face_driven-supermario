@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 using Newtonsoft.Json.Linq;  // JSON reader; https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347
 
@@ -64,7 +65,7 @@ public class MarioCtrl : MonoBehaviour
 
     // Update is called once per frame
     //void Update()
-    public IEnumerator RequestHeadRotation(JObject head_pose)
+    public IEnumerator RequestHeadRotation(JObject blendJson, JObject head_pose)
     {
 
         isGround = Physics2D.Linecast(myTransform.position, groundCheck[0].position, 1 << LayerMask.NameToLayer("Ground"))
@@ -94,18 +95,24 @@ public class MarioCtrl : MonoBehaviour
             transform.Translate(Vector3.right * runSpeed * Time.deltaTime * Mathf.Abs(touchKey_x));
             runAnim();
         }
-
-        if (Input.GetKeyDown(KeyCode.W) && isGround)
-        //if (isTouchJump()&&isGround)
+        foreach (KeyValuePair<string, JToken> pair in blendJson)
         {
-            World.playAudio(World.jumpAudioIndex);
-            //<<<<<<< HEAD
-            //
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpSeed);
-            //=======
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpSeed);
-            //>>>>>>> 8c9a1df50fb98a4abbda29382c341737c5fca2fe
-            jumpAnim();
+            float blend_val = float.Parse(pair.Value.ToString());
+            //if ((pair.Key == "Expressions_browOutVertL_min" || pair.Key == "Expressions_browOutVertR_min") && blend_val >= 0.14 && isGround)
+
+
+            //if (Input.GetKeyDown(KeyCode.W) && isGround)
+            if (isTouchJump()&&isGround)
+            {
+                World.playAudio(World.jumpAudioIndex);
+                //<<<<<<< HEAD
+                //
+                //GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpSeed);
+                //=======
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpSeed);
+                //>>>>>>> 8c9a1df50fb98a4abbda29382c341737c5fca2fe
+                jumpAnim();
+            }
         }
 
         if (!isRun && isGround)
