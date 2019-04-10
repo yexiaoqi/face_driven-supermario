@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Newtonsoft.Json.Linq;  // JSON reader; https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347
 
 public class MarioCtrl : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class MarioCtrl : MonoBehaviour
 
     // Update is called once per frame
     //void Update()
-    public IEnumerator Update()
+    public IEnumerator RequestHeadRotation(JObject head_pose)
     {
 
         isGround = Physics2D.Linecast(myTransform.position, groundCheck[0].position, 1 << LayerMask.NameToLayer("Ground"))
@@ -74,7 +75,8 @@ public class MarioCtrl : MonoBehaviour
 
         float touchKey_x = 1;//moveJoystick.position.x;
 
-        if (Input.GetKey(KeyCode.A))
+        if (head_pose["pose_Ry"].ToObject<float>() * Mathf.Rad2Deg< 0)
+        //if (Input.GetKey(KeyCode.A))
         //if (touchKey_x < -0.1f)
         {
             transform.localEulerAngles = new Vector3(0, 180, 0);
@@ -84,8 +86,8 @@ public class MarioCtrl : MonoBehaviour
             }
             runAnim();
         }
-
-        if (Input.GetKey(KeyCode.D))
+        if(head_pose["pose_Ry"].ToObject<float>() * Mathf.Rad2Deg>0)
+        //if (Input.GetKey(KeyCode.D))
         //else if (touchKey_x > 0.1f)
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);

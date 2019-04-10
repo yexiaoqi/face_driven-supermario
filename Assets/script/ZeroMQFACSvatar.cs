@@ -231,7 +231,7 @@ public class ZeroMQFACSvatar : MonoBehaviour
         //Debug.Log(participants.GetType());
 
         // ignore dnn data
-        UnityMainThreadDispatcher.Instance().Enqueue(MarioCtrl0.Update());
+        UnityMainThreadDispatcher.Instance().Enqueue(MarioCtrl0.RequestHeadRotation(head_pose));
         //if (participants == Participants.users_1_models_1 & Array.IndexOf(topic_info, "dnn") == -1)
         //{
         //    UnityMainThreadDispatcher.Instance().Enqueue(FACSModel0.RequestBlendshapes(blend_shapes));
